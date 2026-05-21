@@ -1,0 +1,21 @@
+[package]
+name = "render"
+version = "0.0.0"
+publish = false
+description = "Rendering example"
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "render"
+path = "src/main.rs"
+
+[dependencies]
+clap.workspace = true
+env_logger.workspace = true
+log.workspace = true
+mapvina_native.workspace = true
+url.workspace = true
+
+[lints]
+workspace = true

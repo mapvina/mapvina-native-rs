@@ -1,0 +1,16 @@
+**/*.rs.bk
+*.pdb
+.ccache
+.idea/
+.vscode/
+cache.sqlite*
+debug/
+out.png
+target/
+temp/
+tmp/
+venv/
+
+# This is a library, no lock
+Cargo.lock
+map.png

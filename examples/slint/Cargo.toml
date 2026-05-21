@@ -1,0 +1,25 @@
+[package]
+name = "slint_map_libre_native"
+version = "0.1.0"
+publish = false
+edition = "2024"
+
+[features]
+# Backend is selected per-OS through target-specific dependencies below. The
+# explicit features here let callers override (`cargo run --features ...`).
+metal = ["mapvina_native/metal"]
+opengl = ["mapvina_native/opengl"]
+vulkan = ["mapvina_native/vulkan"]
+
+[dependencies]
+image = { workspace = true }
+slint = { version = "1.16", features = ["backend-android-activity-06"] }
+
+[target.'cfg(not(target_os = "macos"))'.dependencies]
+mapvina_native = { path = "../..", features = ["vulkan"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+mapvina_native = { path = "../..", features = ["metal"] }
+
+[build-dependencies]
+slint-build = { version = "1.16" }

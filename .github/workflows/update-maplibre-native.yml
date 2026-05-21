@@ -1,0 +1,49 @@
+name: Update mapvina-native dependency
+
+on:
+  schedule:
+    # The first day of every month at 12:00 AM UTC
+    - cron: "0 12 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-dependency:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with: { persist-credentials: false }
+      - name: Install just
+        uses: taiki-e/install-action@7be9fd86bd1707236395105d6e9329dd1511a7e1 # v2.79.0
+        with:
+          tool: just
+
+      - name: Update mapvina-native
+        run: just update-mapvina-native
+
+      - name: Get mapvina-native details
+        id: mapvina-details
+        run: |
+          echo "details<<EOF" >> $GITHUB_OUTPUT
+          just show-mapvina-native
+          echo "EOF" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@5f6978faf089d4d20b00c7766989d076bb2fc7f1 # v8.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update `mapvina-native`"
+          title: "chore(deps): update `mapvina-native`"
+          body: |
+            ## Automated `mapvina-native` dependency update
+
+            This PR updates `package.metadata.mln.release` in `Cargo.toml` to the latest Mapvina Native Core release.
+
+            ${{ steps.mapvina-details.outputs.details }}
+          branch: update-mapvina-native-dependency
+          delete-branch: true
+          labels: dependencies
