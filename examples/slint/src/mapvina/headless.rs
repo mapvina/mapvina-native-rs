@@ -76,7 +76,7 @@ pub fn create_map(size: Size) -> Rc<RefCell<MapVina>> {
     // setting the camera is important, otherwise mapvina does nothing
     // (no logs are coming and no map gets generated).
     renderer.set_camera(Latitude(0.0), Longitude(0.0), 0.0, 0.0, 0.0);
-    renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v1/streets.json?key=public_key".parse().unwrap());
+    renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v2/streets.json?key=public_key".parse().unwrap());
 
     let map = Rc::new(RefCell::new(MapVina::new(renderer)));
 

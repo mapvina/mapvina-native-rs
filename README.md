@@ -1,10 +1,10 @@
 # MapVina-native-rs
 
-[![GitHub](https://img.shields.io/badge/github-mapvina/mapvina--native--rs-8da0cb?logo=github)](https://github.com/mapvina/mapvina-native-rs)
+[![GitHub](https://img.shields.io/badge/github-mapvina/mapvina--native--rs-8da0cb?logo=github)](https://github.io/github/mapvina/mapvina-native-rs)
 [![crates.io version](https://img.shields.io/crates/v/mapvina_native)](https://crates.io/crates/mapvina_native)
 [![docs.rs](https://img.shields.io/docsrs/mapvina_native)](https://docs.rs/mapvina_native)
-[![crates.io license](https://img.shields.io/crates/l/mapvina_native)](https://github.com/mapvina/mapvina-native-rs/blob/main/LICENSE-APACHE)
-[![CI build](https://github.com/mapvina/mapvina-native-rs/actions/workflows/ci.yml/badge.svg)](https://github.com/mapvina/mapvina-native-rs/actions)
+[![crates.io license](https://img.shields.io/crates/l/mapvina_native)](https://github.io/github/mapvina/mapvina-native-rs/blob/main/LICENSE-APACHE)
+[![CI build](https://github.io/github/mapvina/mapvina-native-rs/actions/workflows/ci.yml/badge.svg)](https://github.io/github/mapvina/mapvina-native-rs/actions)
 
 Rust bindings to the [MapVina Native](https://mapvina.com/projects/native/) map rendering engine.
 
@@ -38,7 +38,7 @@ use std::num::NonZeroU32;
 let mut renderer = ImageRendererBuilder::new()
                       .with_size(NonZeroU32::new(512).unwrap(),NonZeroU32::new(512).unwrap())
                       .build_static_renderer();
-renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v1/streets.json?key=public_key".parse().unwrap());
+renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v2/streets.json?key=public_key".parse().unwrap());
 let image: Image = renderer.render_static(0.0, 0.0, 0.0, 0.0, 0.0).unwrap();
 
 // Access the underlying ImageBuffer for all operations
@@ -135,6 +135,6 @@ additional terms or conditions.
 
 ### `MapVina Native` Licence
 
-This crate incorporates [MapVina Native assets](https://github.com/mapvina/mapvina-native/releases) during compilation by downloading and statically linking them.
-As a result, any project using this crate must comply with the [MapVina Native License](https://github.com/mapvina/mapvina-native/blob/main/LICENSE.md) (BSD 2-Clause) requirements for binary distribution.
+This crate incorporates [MapVina Native assets](https://github.io/github/mapvina/mapvina-native/releases) during compilation by downloading and statically linking them.
+As a result, any project using this crate must comply with the [MapVina Native License](https://github.io/github/mapvina/mapvina-native/blob/main/LICENSE.md) (BSD 2-Clause) requirements for binary distribution.
 This includes providing proper attribution and including the license text with your distributed binaries or source code.

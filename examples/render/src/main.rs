@@ -27,7 +27,7 @@ struct Args {
     #[arg(
         short = 's',
         long = "style",
-        default_value = "https://maps.mapvina.com/styles/v1/streets.json?key=public_key"
+        default_value = "https://maps.mapvina.com/styles/v2/streets.json?key=public_key"
     )]
     style: String,
 

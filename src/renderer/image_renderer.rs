@@ -26,7 +26,7 @@ use std::path::Path;
 ///     .with_size(NonZeroU32::new(512).unwrap(), NonZeroU32::new(512).unwrap())
 ///     .build_static_renderer();
 ///
-/// renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v1/streets.json?key=public_key".parse().unwrap());
+/// renderer.load_style_from_url(&"https://maps.mapvina.com/styles/v2/streets.json?key=public_key".parse().unwrap());
 /// let image: Image = renderer.render_static(0.0, 0.0, 0.0, 0.0, 0.0).unwrap();
 ///
 /// // Access the underlying ImageBuffer for all operations
